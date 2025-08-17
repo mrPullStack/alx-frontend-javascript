@@ -19,9 +19,9 @@ interface printTeacherFunction {
 }
 
 // Implementation of the function
-const printTeacher: printTeacherFunction = (firstName, lastName) => {
-  return `${firstName.charAt(0)}. ${lastName}`;
-};
+function printTeacher({ firstName, lastName }: { firstName: string; lastName: string }): string {
+  return `${firstName[0]}. ${lastName}`;
+}
 
 // Example usage of Teacher
 const teacher3: Teacher = {
@@ -46,4 +46,4 @@ const director1: Directors = {
 console.log(director1);
 
 // Example usage of printTeacher
-console.log(printTeacher("John", "Doe")); // J. Doe
+console.log(printTeacher({ firstName: "John", lastName: "Doe" })); // J. Doe
