@@ -18,8 +18,8 @@ interface printTeacherFunction {
   (firstName: string, lastName: string): string;
 }
 
-// Implementation of the function (checker expects this style)
-function printTeacher(firstName: string, lastName: string): string {
+// Implementation of the function (with destructuring)
+function printTeacher({ firstName, lastName }: { firstName: string; lastName: string }): string {
   return `${firstName}. ${lastName}`;
 }
 
@@ -46,4 +46,4 @@ const director1: Directors = {
 console.log(director1);
 
 // Example usage of printTeacher
-console.log(printTeacher("John", "Doe")); // J. Doe
+console.log(printTeacher({ firstName: "John", lastName: "Doe" })); // J. Doe
