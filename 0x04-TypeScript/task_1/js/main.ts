@@ -23,27 +23,37 @@ function printTeacher({ firstName, lastName }: { firstName: string; lastName: st
   return `${firstName}. ${lastName}`;
 }
 
-// Example usage of Teacher
-const teacher3: Teacher = {
-  firstName: 'John',
-  lastName: 'Doe',
-  fullTimeEmployee: false,
-  location: 'London',
-  contract: false,
-};
+// Student class constructor interface
+interface StudentClassConstructor {
+  new (firstName: string, lastName: string): StudentClassInterface;
+}
 
-console.log(teacher3);
+// Student class interface
+interface StudentClassInterface {
+  workOnHomework(): string;
+  displayName(): string;
+}
 
-// Example usage of Directors
-const director1: Directors = {
-  firstName: 'John',
-  lastName: 'Doe',
-  location: 'London',
-  fullTimeEmployee: true,
-  numberOfReports: 17,
-};
+// StudentClass implementation
+class StudentClass implements StudentClassInterface {
+  private firstName: string;
+  private lastName: string;
 
-console.log(director1);
+  constructor(firstName: string, lastName: string) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+  }
 
-// Example usage of printTeacher
-console.log(printTeacher({ firstName: "John", lastName: "Doe" })); // J. Doe
+  workOnHomework(): string {
+    return "Currently working";
+  }
+
+  displayName(): string {
+    return this.firstName;
+  }
+}
+
+// Example usage
+const student = new StudentClass("Alice", "Johnson");
+console.log(student.displayName());     // Alice
+console.log(student.workOnHomework());  // Currently working
