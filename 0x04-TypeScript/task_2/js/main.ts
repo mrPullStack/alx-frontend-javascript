@@ -54,6 +54,20 @@ function createEmployee(salary: number | string): Director | Teacher {
     return new Director();
 }
 
+//type predicate
+export function isDirector(employee: DirectorInterface | TeacherInterface): employee is DirectorInterface {
+    return (employee as DirectorInterface).workDirectorTasks !== undefined;
+}
+
+// executeWork function
+export function executeWork(employee: DirectorInterface | TeacherInterface): string {
+    if(isDirector(employee)) {
+        return employee.workDirectorTasks();
+    } else {
+        return employee.workTeacherTasks();
+    }
+}
+
 // Example usage
 console.log(createEmployee(200));   // Teacher
 console.log(createEmployee(1000));  // Director
