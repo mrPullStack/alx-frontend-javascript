@@ -72,14 +72,13 @@ export function executeWork(employee: DirectorInterface | TeacherInterface): str
 type Subjects = "Math" | "History";
 
 // Function that uses the Subjects type explicitly
-function teachClass(todayClass: Subjects): string {
-    if (todayClass === "Math") {
-        return "Teaching Math";
-    } else {
-        return "Teaching History";
+export function teachClass(todayClass:Subjects): string {
+    if (todayClass === 'Math') {
+        return 'Teaching Math'
+    } else if (todayClass === 'History') {
+        return 'Teaching History'
     }
 }
-
 // Example usage
 console.log(createEmployee(200));   // Teacher
 console.log(createEmployee(1000));  // Director
