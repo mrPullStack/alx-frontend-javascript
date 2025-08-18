@@ -71,7 +71,7 @@ export function executeWork(employee: DirectorInterface | TeacherInterface): str
 // Define the string literal type
 type Subjects = "Math" | "History";
 
-// Function that accepts only "Math" or "History"
+// Function that uses the Subjects type explicitly
 function teachClass(todayClass: Subjects): string {
     if (todayClass === "Math") {
         return "Teaching Math";
